@@ -24,10 +24,23 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_numbers);
 
 
-        ArrayList<String> words = new ArrayList<String>(Arrays.asList("one","two","three","four","five","six","seven","eight","nine","ten"));
+        ArrayList<Word> words = new ArrayList<Word>(Arrays.asList(
+                new Word("one", "lutti"),
+                new Word("two","otiiko"),
+                new Word("three","tolookosu"),
+                new Word("four","oyyisa"),
+                new Word("five","massokka"),
+                new Word("six","temmokka"),
+                new Word("seven","kenekaku"),
+                new Word("eight","kawinta"),
+                new Word("nine","wo’e"),
+                new Word("ten","na’aacha")
+        ));
 
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
-        GridView listView = (GridView) findViewById(R.id.rootView);
-        listView.setAdapter(itemsAdapter);
+
+
+        WordAdapter adapter = new WordAdapter(this, words);
+        ListView listView = (ListView) findViewById(R.id.rootView);
+        listView.setAdapter(adapter);
     }
 }
